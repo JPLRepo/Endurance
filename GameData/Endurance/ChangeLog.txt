@@ -1,0 +1,23 @@
+﻿V 0.92
+Fixed collider on Ranger docking port part.
+Fixed RCS transforms on the Ranger and Lander.
+Fixed Landing legs on the Ranger - using custom part module adapted from SSTU mod (with permission).
+Added AVC version checking support.
+
+V 0.91
+Changes (from V0.90): Fixed Thermals. 
+Fixed colliders. Fixed Models. Fixed textures. 
+Fixed CoM on Lander and Ranger. 
+Tweaked Lander dry mass to take into account engines. 
+Added Life Support configs for USI-LS and TAC-LS. 
+Added Connected Living Space configs. 
+Added KAS configs. 
+Heaps (lost count) of config file changes to get everything to work in KSP 1.0.5. 
+Added Emissives to the Landers VTOL engines. 
+New Ranger textures (courtesy of xxhansonmaxx). 
+Consolidated the Implementation folder so all textures and models are in an Assets Folder (with exception of the IVAs). 
+All the Endurance main modules that have Solar panels on their outside - the Solar Panels now ACTUALLY WORK and produce EC. 
+Updated the Colony Science Lab to the new KSP 1.0.5 science lab process of data and science. 
+Fixed Ranger multi-mode engines to work in KSP 1.0.5. 
+Inflatable ground habitat now has zero capacity when not inflated and 10 when inflated (using Porkjet's module).
+

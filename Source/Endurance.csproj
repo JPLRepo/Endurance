@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ECD03D1C-255C-45A2-ACFA-D35B500538C9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Endurance</RootNamespace>
+    <AssemblyName>Endurance</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>..\..\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UnityEngine">
+      <HintPath>..\..\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnimState.cs" />
+    <Compile Include="IControlledModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ENAnimateControlled.cs" />
+    <Compile Include="ENControlledModule.cs" />
+    <Compile Include="ENExtensions.cs" />
+    <Compile Include="ENLandingLeg.cs" />
+    <Compile Include="ENUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="7za_dir.txt" />
+    <Content Include="ksp_dir.txt" />
+    <Content Include="mono_exe.txt" />
+    <Content Include="pdb2mdb_exe.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>set /p KSP_DIR=&lt;"$(ProjectDir)ksp_dir.txt"
+set /p MONO_EXE_DIR=&lt;"$(ProjectDir)mono_exe.txt"
+set /p PDB2MDB_EXE_DIR=&lt;"$(ProjectDir)pdb2mdb_exe.txt"
+set /p ZA_DIR=&lt;"$(ProjectDir)7za_dir.txt"
+
+xcopy "$(TargetPath)" "$(SolutionDir)\GameData\$(ProjectName)\Plugins\" /Y
+
+xcopy "$(TargetDir)$(ProjectName).pdb" "$(SolutionDir)\GameData\$(ProjectName)\Plugins\" /Y
+
+cd "$(TargetDir)"
+"%25MONO_EXE_DIR%25" "%25PDB2MDB_EXE_DIR%25" "$(TargetFileName)"
+xcopy "$(TargetDir)$(ProjectName).dll.mdb" "$(SolutionDir)\GameData\$(ProjectName)\Plugins\" /Y
+
+where /q %25ZA_DIR%25:7za.exe
+if %25ERRORLEVEL%25 == 1 (
+   echo Cannot find 7-zip to package build
+) else (
+   echo Packaging build
+  ) 
+if exist "$(SolutionDir)$(ProjectName).zip" del "$(SolutionDir)$(ProjectName).zip"
+   
+%25ZA_DIR%257za.exe a -tzip -r  "$(SolutionDir)$(ProjectName).zip" "$(SolutionDir)\GameData"
+%25ZA_DIR%257za.exe d -r  "$(SolutionDir)$(ProjectName).zip" "*.ddsified" "*.pdb" "*.mdb"
+xcopy /E /Y "$(SolutionDir)\GameData" "%25KSP_DIR%25\GameData"
+</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
