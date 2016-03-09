@@ -19,3 +19,8 @@ xxhansonmaxx - IVAs
 InsanePlumber - DDS Conversion   
 Jasseji - KIS migration   
 Awesome flags by Akron!   
+
+
+Part module code used for Ranger lander legs is based on original by shadowmage in his SSTU mod for KSP.
+The license for that code remains the same as his original license and is included on this site and in the distributed zip file.
+Part Module Code GNU License: General Public License (GPL) 3.0 
