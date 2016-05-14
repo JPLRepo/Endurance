@@ -1,0 +1,45 @@
+V1.00
+Fixed Blocked Hatch on Ranger - Ranger now has a Ranger Docking port built-in. Fixed blocked hatches on a bunch of other parts (thanks KSP 1.1).
+Fixed alignment of all Internals with externals to support stock overlay mode. Due to this some internals and externals have been re-scaled and
+re-done. Props also have had to change to fit. Added stock overlay mode meshes for internals.
+Tweaked CoM and CoL on the lander, hopefully it flies better now in atmosphere.
+Added support for JSIAdvTransparentPods (separate download mod see OP for link) on the Viper, Ranger and Lander.
+Fixed VTOL engines for the Lander.
+Modified the Endurance ring to have attach nodes on the outside of the ring to allow you to attach new docking nodes.
+Added new Endurance Ring docking parts: "Endurance Outer Docking Node" and "Endurance Outer Ranger Docking Node"
+Known Issues: Ranger Landing legs sink into the ground - I am unable to find a reliable way to fix this and many have had issues with landing
+legs. Assume further updates to KSP will provide fixes for this. For now it is what it is.
+
+V0.93
+Fixed Texture on Lander - Specular.
+Added Attach nodes to the top and bottom of the Lander.
+Fixed RCS ports on Lander and Ranger.
+Fixed Docking Nodes, they no attach/detach and have "Control from here".
+It is now possible to build the entire Endurance without any Sub-Assemblies. Tip for attaching the docking nodes:
+Hold Alt/Option key when placing them, continue holding Alt/Option and rotate them the right way. If they are not green 
+move the mouse outwards a little bit until they turn green and release. Should attach nicely. For the Ranger angled ports
+first attach docking nodes to a Straight attach point on the ring centre. Attach two Docking nodes the right way around and
+then attach the Ranger. Then select the innermost docking port and place it on the angled attach node.
+
+V0.92
+Fixed collider on Ranger docking port part.
+Fixed RCS transforms on the Ranger and Lander.
+Fixed Landing legs on the Ranger - using custom part module adapted from SSTU mod (with permission).
+Added AVC version checking support.
+
+V0.91 
+Fixed Thermals.
+Fixed colliders. Fixed Models. Fixed textures.
+Fixed CoM on Lander and Ranger.
+Tweaked Lander dry mass to take into account engines.
+Added Life Support configs for USI-LS and TAC-LS.
+Added Connected Living Space configs.
+Added KAS configs.
+Heaps (lost count) of config file changes to get everything to work in KSP 1.0.5.
+Added Emissives to the Landers VTOL engines.
+New Ranger textures (courtesy of xxhansonmaxx).
+Consolidated the Implementation folder so all textures and models are in an Assets Folder (with exception of the IVAs).
+All the Endurance main modules that have Solar panels on their outside - the Solar Panels now ACTUALLY WORK and produce EC.
+Updated the Colony Science Lab to the new KSP 1.0.5 science lab process of data and science.
+Fixed Ranger multi-mode engines to work in KSP 1.0.5.
+Inflatable ground habitat now has zero capacity when not inflated and 10 when inflated (using Porkjet's module).

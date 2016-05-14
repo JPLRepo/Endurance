@@ -321,9 +321,9 @@ namespace Endurance
 
         public static void recursePrintMaterialData(Transform tr)
         {
-            if (tr.renderer != null)
+            if (tr.GetComponent<Renderer>() != null)
             {
-                Material m = tr.renderer.material;
+                Material m = tr.GetComponent<Renderer>().material;
                 Texture t = m.mainTexture;
                 Shader s = m.shader;
                 MonoBehaviour.print("mat: " + m + " : tex: " + t + " : shad: " + s);
@@ -400,9 +400,9 @@ namespace Endurance
 
         public static void enableRenderRecursive(Transform tr, bool val)
         {
-            if (tr.renderer != null)
+            if (tr.GetComponent<Renderer>() != null)
             {
-                tr.renderer.enabled = val;
+                tr.GetComponent<Renderer>().enabled = val;
             }
             for (int i = 0; i < tr.childCount; i++)
             {
@@ -474,9 +474,9 @@ namespace Endurance
 
         public static void setTextureRecursive(Transform tr, Texture tex, int id)
         {
-            if (tr != null && tr.renderer != null && tr.renderer.material != null)
+            if (tr != null && tr.GetComponent<Renderer>() != null && tr.GetComponent<Renderer>().material != null)
             {
-                tr.renderer.material.SetTexture(id, tex);
+                tr.GetComponent<Renderer>().material.SetTexture(id, tex);
             }
             foreach (Transform tr1 in tr)
             {
@@ -486,7 +486,7 @@ namespace Endurance
 
         public static void setMaterialRecursive(Transform tr, Material mat)
         {
-            if (tr.gameObject.renderer != null) { tr.gameObject.renderer.material = mat; }
+            if (tr.gameObject.GetComponent<Renderer>() != null) { tr.gameObject.GetComponent<Renderer>().material = mat; }
             int len = tr.childCount;
             for (int i = 0; i < len; i++)
             {
@@ -496,10 +496,10 @@ namespace Endurance
 
         public static void setOpacityRecursive(Transform tr, float opacity)
         {
-            if (tr.renderer != null && tr.renderer.material != null)
+            if (tr.GetComponent<Renderer>() != null && tr.GetComponent<Renderer>().material != null)
             {
-                tr.renderer.material.SetFloat("_Opacity", opacity);
-                tr.renderer.material.renderQueue = opacity >= 1f ? 2000 : 3000;
+                tr.GetComponent<Renderer>().material.SetFloat("_Opacity", opacity);
+                tr.GetComponent<Renderer>().material.renderQueue = opacity >= 1f ? 2000 : 3000;
             }
             foreach (Transform child in tr) { setOpacityRecursive(child, opacity); }
         }

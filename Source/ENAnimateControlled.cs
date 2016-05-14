@@ -22,6 +22,7 @@
  * project is in no way associated with nor endorsed by Squad.
 */
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace Endurance
@@ -162,7 +163,7 @@ namespace Endurance
                 }
             }
         }
-
+        
         private void setAnimState(AnimState newState, bool callback)
         {
             switch (newState)

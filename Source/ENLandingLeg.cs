@@ -599,9 +599,9 @@ namespace Endurance
             int len = legData.Count;
             for (int i = 0; i < len; i++)
             {
-                if (legData[i].footColliderTransform != null && legData[i].footColliderTransform.collider != null)
+                if (legData[i].footColliderTransform != null && legData[i].footColliderTransform.GetComponent<Collider>() != null)
                 {
-                    legData[i].footColliderTransform.collider.enabled = val;
+                    legData[i].footColliderTransform.GetComponent<Collider>().enabled = val;
                 }
             }
         }
