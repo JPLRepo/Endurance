@@ -1,9 +1,10 @@
 V1.01
 Fixed all the docking ports.
-Re-pass over the Science lab - but it's legs also have issues like the Ranger. For now, as long as you don't launch it with it'scaled
+Re-pass over the Science lab - but it's legs also have issues like the Ranger. For now, as long as you don't launch it with it's
 legs deployed it seems fine.
 Added KIS container space to the Ranger and Lander (if you have KIS installed).
 Re-balanced the Ranger and Lander centre of mass and centre of lift and engine thrusters to hopefully make them much more stable.
+Fixed blocked hatches on the Lander
 
 V1.00
 Fixed Blocked Hatch on Ranger - Ranger now has a Ranger Docking port built-in. Fixed blocked hatches on a bunch of other parts (thanks KSP 1.1).
