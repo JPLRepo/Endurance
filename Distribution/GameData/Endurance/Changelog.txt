@@ -1,6 +1,10 @@
+V1.5
+Fix Lander RCS thruster causing it to roll and pitch.
+Adjusted CoM and CoL for lander.
+Added Gimbal to Lander rear engines for better control.
 V1.4
 Re-compile for KSP 1.3
-V1.3
+V1.3 (was not released)
 Re-compile for KSP 1.2+
 Re-Balance Lander and Ranger bodies now that lifting bodies is fixed. NB: Once FAR comes out for KSP 1.2 will need another re-balance for FAR.
 Science Lab datastorage boosted to 750 and minimum crew set to 1. Also added KerbNet to the Science Lab.
