@@ -97,7 +97,7 @@ if %25ERRORLEVEL%25 == 1 (  echo Cannot find 7-zip to package build) else (  ech
 if exist "$(SolutionDir)Distribution\$(ProjectName)_V@(VersionNumber).zip" del "$(SolutionDir)Distribution\$(ProjectName)_V@(VersionNumber).zip"   
 %25ZA_DIR%257za.exe a -tzip "$(SolutionDir)Distribution\$(ProjectName)_V@(VersionNumber).zip" "$(SolutionDir)Distribution\GameData" 
 %25ZA_DIR%257za.exe d -r "$(SolutionDir)Distribution\$(ProjectName)_V@(VersionNumber).zip" "*.ddsified" "*.xcf" "*.blend" "thumbs.db" "*.pdb" "*.dll.mdb"
-xcopy /E /Y "$(SolutionDir)Distribution\GameData" "%25KSP_DIR%25\GameData"</PostBuildEvent>
+xcopy /E /Y "$(SolutionDir)Distribution\GameData" "%25KSP_DIR%25\GameData\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
