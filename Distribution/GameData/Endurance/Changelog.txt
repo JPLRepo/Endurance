@@ -1,3 +1,5 @@
+V1.8
+Re-compile for KSP 1.5.x
 V1.7
 Re-Compile for KSP 1.4.1
 Fixed hatch blocked on the inflatable habitat part.
