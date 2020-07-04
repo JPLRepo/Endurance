@@ -1,0 +1,1 @@
+This folder primarily contains meshes welded onto the Endurance parts to facilitate new particle plumes and WBI KFS Graviolium features. Provided by JadeOfMaar.
