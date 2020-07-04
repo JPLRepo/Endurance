@@ -1,0 +1,1106 @@
+// B9 vol / 1800 = WBIConvertibleStorage capa
+// B9 vol / 8 = WBIMultipurposeHab capa
+// B9 vol * 5 = WBIOmniStorage vol
+
+// EC-200b Command Module
+@PART[ENcommandEndurance]:NEEDS[Pathfinder]
+{
+	MODULE:NEEDS[Workshop] 
+	{
+		name = OseModuleWorkshop
+		ProductivityFactor = 0.01 // Consumption rate of each required resource in units/sec.
+		SpecialistEfficiencyFactor = 0.002 //Additional unit/sec of each resource that will be consumed, per experience star of the specialist.
+		ExperienceEffect = RepairSkill //Skill required for the increased efficiency.
+		UpkeepResource = ElectricCharge // This resource will be consumed 1 per second during processing
+		MinimumCrew = 2 // Amount of Kerbals needed for the Workshop to work
+	}
+
+	MODULE:NEEDS[Workshop]
+	{
+		name = OseModuleRecycler
+		ConversionRate = 0.15 // How much of a parts mass will be recycled
+		ProductivityFactor = 0.01 // Recycle rate of each required resource in units/sec.
+		SpecialistEfficiencyFactor = 0.002 //Additional unit/sec of each resource that will be recycled, per experience star of the specialist.
+		ExperienceEffect = RepairSkill //Skill required for the increased efficiency.
+		UpkeepResource = ElectricCharge // This resource will be consumed 1 per second during processing
+		MinimumCrew = 2 // Amount of Kerbals needed for the Recycler to work
+	}
+
+	MODULE
+	{
+		name = WBIMultipurposeHab
+		enableLogging = True
+		showGUI = True
+		isInflatable = False
+		capacityFactor = 15
+		inflatedCrewCapacity = 3
+		fieldReconfigurable = True
+		templateNodes = PATH_ENDURCMD
+		defaultTemplate = OmniShop
+		//If the part has a KIS container, this is the base and max amount
+		baseStorage = 0
+		maxStorage = 0.1
+		// partToolTipTitle = Your First Habitat
+		// partToolTip = Want to use the Ponderosa for more than one purpose? With a feat of engineering, you can change it in the field. For a price... The cornerstone of your habitation needs, resources created in one of the module's many configurations will benefit from soil analysis.
+		opsViewTitle = Endurance Command Operations
+		
+		resourcesToKeep:NEEDS[SnacksUtils] = ElectricCharge;Snacks;HydrazineVodka;FreshAir
+		resourcesToKeep:NEEDS[Kerbalism] = ElectricCharge;Shielding;Food;Oxygen
+		resourcesToKeep:NEEDS[TacLifeSupport] = ElectricCharge;Food;Oxygen;Water;CarbonDioxide;Waste;WasteWater
+		resourcesToKeep:NEEDS[USILifeSupport] = ElectricCharge;Supplies;Mulch;Machinery;ColonySupplies
+	}
+
+	MODULE:NEEDS[BARIS]
+	{
+		name = ModuleQualityControl
+		quality = 20
+		mtbf = 720
+		guiVisible = false
+
+		showUpgradesInModuleInfo = True
+		UPGRADES
+		{
+			UPGRADE
+			{
+				name__ = PathfinderQuality1
+				description__ = Quality: 75; MTBF: 800hrs
+				techRequired__ = advMetalWorks
+				mtbf = 800
+				quality = 25
+			}
+			UPGRADE
+			{
+				name__ = PathfinderQuality2
+				description__ = Quality: 100; MTBF: 900hrs
+				techRequired__ = metaMaterials
+				mtbf = 900
+				quality = 30
+			}
+		}
+	}
+
+	MODULE
+	{
+		name = WBIResourceDistributor
+		resourceBlacklist = ReplacementParts
+	}
+
+	MODULE
+	{
+		name = WBIEfficiencyMonitor
+		efficiencyType = habitation
+		harvestType = 0
+	}
+
+	MODULE:NEEDS[KIS]
+	{
+		name = ModuleKISInventory
+		maxVolume = 8000
+		externalAccess = True
+		internalAccess = True
+		slotsX = 5
+		slotsY = 5
+		slotSize = 50
+		itemIconResolution = 128
+		selfIconResolution = 128
+		openSndPath = KIS/Sounds/containerOpen
+		closeSndPath = KIS/Sounds/containerClose
+		defaultMoveSndPath = KIS/Sounds/itemMove
+	}
+
+	MODULE
+	{
+		name = WBIPropStateHelper
+	}
+}
+// EC-200 Crew Cabin
+@PART[ENhabEndurance]:NEEDS[Pathfinder]
+{
+	MODULE
+	{
+		name = WBIMultipurposeHab
+		enableLogging = True
+		showGUI = True
+		isInflatable = False
+		capacityFactor = 10
+		inflatedCrewCapacity = 4
+		fieldReconfigurable = True
+		canConfigureWhenDeflated = True
+		templateNodes = PATH_ENDURHAB
+		defaultTemplate = OmniLab
+		//If the part has a KIS container, this is the base and max amount
+		baseStorage = 0
+		maxStorage = 0.1
+		// partToolTipTitle = Your First Habitat
+		// partToolTip = Want to use the Ponderosa for more than one purpose? With a feat of engineering, you can change it in the field. For a price... The cornerstone of your habitation needs, resources created in one of the module's many configurations will benefit from soil analysis.
+		opsViewTitle = Endurance Cabin Operations
+		resourcesToKeep:NEEDS[SnacksUtils] = ElectricCharge;Snacks;HydrazineVodka;FreshAir
+		resourcesToKeep:NEEDS[Kerbalism] = ElectricCharge;Shielding;Food;Oxygen
+		resourcesToKeep:NEEDS[TacLifeSupport] = ElectricCharge;Food;Oxygen;Water;CarbonDioxide;Waste;WasteWater
+		resourcesToKeep:NEEDS[USILifeSupport] = ElectricCharge;Supplies;Mulch;Machinery;ColonySupplies
+	}
+
+	MODULE:NEEDS[BARIS]
+	{
+		name = ModuleQualityControl
+		quality = 20
+		mtbf = 720
+		guiVisible = false
+
+		showUpgradesInModuleInfo = True
+		UPGRADES
+		{
+			UPGRADE
+			{
+				name__ = PathfinderQuality1
+				description__ = Quality: 75; MTBF: 800hrs
+				techRequired__ = advMetalWorks
+				mtbf = 800
+				quality = 25
+			}
+			UPGRADE
+			{
+				name__ = PathfinderQuality2
+				description__ = Quality: 100; MTBF: 900hrs
+				techRequired__ = metaMaterials
+				mtbf = 900
+				quality = 30
+			}
+		}
+	}
+	MODULE
+	{
+		name = WBIResourceDistributor
+		resourceBlacklist = ReplacementParts
+	}
+	MODULE
+	{
+		name = WBIEfficiencyMonitor
+		efficiencyType = habitation
+	}
+}
+
+// - - - Inserts - - -
+
+// MB-2 Habitat Assessment Unit
+@PART[ENendSciBox]:NEEDS[WildBlueTools]
+{
+	MODULE
+	{
+		name = GeoSurveyCamera
+		ConverterName = Geosurvey
+		StartActionName = Start Geosurvey
+		StopActionName = Stop Geosurvey
+		AutoShutdown = false
+		GeneratesHeat = false
+		hoursPerCycle = 6
+		minimumSuccess = 40
+		criticalSuccess = 95
+		criticalFail = 20
+		sciencePerCycle = 0.25
+		repairSkill = ScienceSkill
+		repairResource = Equipment
+		repairAmount = 20
+
+		INPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 5
+		}
+	
+		INPUT_RESOURCE
+		{
+			ResourceName = ResearchKits
+			Ratio = 0.000185
+		}
+	}
+	RESOURCE
+	{
+		name = LabTime
+		amount = 0
+		maxAmount = 850
+		isTweakable = false
+	}
+	
+	!MODULE[ModuleScienceExperiment] {}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = habcheck
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		experimentActionName = Run Habitability Orbital Assessment
+		resetActionName = Reset Habitability Orbital Assessment
+		reviewActionName = Review Orbital Assessment
+		useStaging = False
+		useActionGroups = False
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.1
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = True
+		resettable = True
+		resettableOnEVA = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = habcheck2
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		experimentActionName = Run Habitability Surface Assessment
+		resetActionName = Reset Habitability Surface Assessment
+		reviewActionName = Review Surface Assessment
+		useStaging = False
+		useActionGroups = False
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.1
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = True
+		resettable = True
+		resettableOnEVA = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	MODULE
+	{
+		name = WBIExperimentManifest
+		defaultExperiment = WBIEmptyExperiment
+	}
+	
+	MODULE
+	{
+		name = ModuleResourceConverter
+        ConverterName = Science Processor
+        StartActionName = Start Science Processor
+        StopActionName = Stop Science Processor
+        // FillAmount = 1.0         
+        AutoShutdown = True
+        GeneratesHeat = False
+        // TemperatureModifier = 60
+        // EfficiencyBonus = 1.0
+		INPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 5
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = ResearchKits
+			Ratio = 0.00027777
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = LabTime
+			Ratio = 0.00028
+			DumpExcess = true
+		}
+	}
+	MODULE
+	{
+		name = WBIDataTransferUtility
+	}
+	MODULE
+	{
+		name = WBIResourceDistributor
+		resourceBlacklist = ReplacementParts
+	}
+	MODULE:NEEDS[BARIS]
+	{
+		name = ModuleQualityControl
+		quality = 20
+		mtbf = 100
+
+		showUpgradesInModuleInfo = True
+		UPGRADES
+		{
+			UPGRADE
+			{
+				name__ = PathfinderQuality1
+				description__ = Quality: 50; MTBF: 120hrs
+				techRequired__ = advMetalWorks
+				mtbf = 120
+				quality = 25
+			}
+			UPGRADE
+			{
+				name__ = PathfinderQuality2
+				description__ = Quality: 75; MTBF: 150hrs
+				techRequired__ = metaMaterials
+				mtbf = 150
+				quality = 30
+			}
+		}
+	}
+}
+// MB-75 Deployable Habitation Unit
+@PART[ENdeployableHabitat]:NEEDS[Pathfinder]
+{
+	!MODULE[ModuleAnimateGeneric] {}
+	!MODULE[ENdeployableHabRestrictor] {}
+	MODULE
+	{
+		name = WBIMultipurposeHab
+		enableLogging = True
+		showGUI = True
+		isInflatable = True
+		animationName = inflate
+		startEventGUIName = Assemble
+		endEventGUIName = Disassemble
+		capacityFactor = 18.75 // <= B9 vol / 8>
+		inflatedCrewCapacity = 10
+		fieldReconfigurable = True
+		canConfigureWhenDeflated = True
+		templateNodes = PATH_HABITATION;PATH_INDUSTRY
+		defaultTemplate = GeoLab
+		//If the part has a KIS container, this is the base and max amount
+		baseStorage = 0
+		maxStorage = 0.1
+		// partToolTipTitle = Your First Habitat
+		// partToolTip = Want to use the Ponderosa for more than one purpose? With a feat of engineering, you can change it in the field. For a price... The cornerstone of your habitation needs, resources created in one of the module's many configurations will benefit from soil analysis.
+		opsViewTitle = Endurance Deployable Hab Operations
+		resourcesToKeep:NEEDS[SnacksUtils] = ElectricCharge;Snacks;HydrazineVodka;FreshAir
+		resourcesToKeep:NEEDS[Kerbalism] = ElectricCharge;Shielding;Food;Oxygen
+		resourcesToKeep:NEEDS[TacLifeSupport] = ElectricCharge;Food;Oxygen;Water;CarbonDioxide;Waste;WasteWater
+		resourcesToKeep:NEEDS[USILifeSupport] = ElectricCharge;Supplies;Mulch;Machinery;ColonySupplies
+	}
+}
+// MB-50 Mobile Analysis Unit
+@PART[ENdeployableLab]:NEEDS[Pathfinder]
+{
+	MODULE
+	{
+		name = WBIExperimentManifest
+		defaultExperiment = WBIEmptyExperiment
+	}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = WBIEmptyExperiment
+		defaultExperiment = WBIEmptyExperiment
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		experimentActionName = Do Nothing
+		resetActionName = Reset Nothing
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.0001
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = False
+		resettable = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	+MODULE[WBIModuleScienceExperiment],0 {}
+	+MODULE[WBIModuleScienceExperiment],0 {}
+	+MODULE[WBIModuleScienceExperiment],0 {}
+	+MODULE[WBIModuleScienceExperiment],0 {}
+	+MODULE[WBIModuleScienceExperiment],0 {}
+	
+	MODULE
+	{
+		name = WBIScienceConverter
+		scientistBonus = 0.25
+		researchTime = 7
+		scienceMultiplier = 5
+		fundsPerData = 100.0
+		reputationPerData = 1.0
+		scienceCap = 750
+		powerRequirement = 5
+		ConverterName = Research
+		StartActionName = Start Research
+		StopActionName = Stop Research
+	}
+	MODULE
+	{
+		name = WBIMultipurposeHab
+		enableLogging = True
+		showGUI = True
+		isInflatable = False
+		capacityFactor = 1.0
+		inflatedCrewCapacity = 3
+		fieldReconfigurable = True
+		canConfigureWhenDeflated = True
+		templateNodes = PATH_SCIENCE
+		defaultTemplate = OmniLab
+		//If the part has a KIS container, this is the base and max amount
+		baseStorage = 0
+		maxStorage = 0.1
+		// partToolTipTitle = Your First Habitat
+		// partToolTip = Want to use the Ponderosa for more than one purpose? With a feat of engineering, you can change it in the field. For a price... The cornerstone of your habitation needs, resources created in one of the module's many configurations will benefit from soil analysis.
+		opsViewTitle = Mobile Analyzer Operations
+		resourcesToKeep:NEEDS[SnacksUtils] = ElectricCharge;Snacks;HydrazineVodka;FreshAir
+		resourcesToKeep:NEEDS[Kerbalism] = ElectricCharge;Shielding;Food;Oxygen
+		resourcesToKeep:NEEDS[TacLifeSupport] = ElectricCharge;Food;Oxygen;Water;CarbonDioxide;Waste;WasteWater
+		resourcesToKeep:NEEDS[USILifeSupport] = ElectricCharge;Supplies;Mulch;Machinery;ColonySupplies
+	}
+
+	MODULE:NEEDS[BARIS]
+	{
+		name = ModuleQualityControl
+		quality = 20
+		mtbf = 720
+		guiVisible = false
+
+		showUpgradesInModuleInfo = True
+		UPGRADES
+		{
+			UPGRADE
+			{
+				name__ = PathfinderQuality1
+				description__ = Quality: 75; MTBF: 800hrs
+				techRequired__ = advMetalWorks
+				mtbf = 800
+				quality = 25
+			}
+			UPGRADE
+			{
+				name__ = PathfinderQuality2
+				description__ = Quality: 100; MTBF: 900hrs
+				techRequired__ = metaMaterials
+				mtbf = 900
+				quality = 30
+			}
+		}
+	}
+	MODULE
+	{
+		name = WBIResourceDistributor
+		resourceBlacklist = ReplacementParts
+	}
+	MODULE
+	{
+		name = WBIEfficiencyMonitor
+		efficiencyType = habitation
+	}
+}
+
+// - - - Misc - - -
+
+// Advanced Unpressurised Storage Cuboid
+// @PART[ENbox_small]
+// {
+	
+// }
+
+// - - - Template setup - - -
+
+// Template layout
+// PATH_ENDURHAB - For the crew cabin
+// * Commercial Sci Lab
+// * OmniLab
+// * Watney Chem Lab
+// * Prairie Greenhouse
+
+// PATH_ENDURCMD - For the command part
+// * Ponderosa Hab
+// * OmniShop
+
+PATH_ENDURHAB:NEEDS[Pathfinder]
+{
+	author = Angel-125, with rasta013
+	name = DocScience
+	title = Commercial Science Lab
+	shortName = Science Lab
+	description = More than just a fancy janitor's closet for cleaning used experiments, the Commercial Science Lab (CSL), jointly developed with the Rasta Engineering Group, is designed for long-term scientific research. Just drop an experiment into the lab, start researching it, and collect the data. Be sure to periodically check back to see how much data you've accumulated. And unlike some labs, the CSL lets you publish your research to gain the respect of your peers, and sell the data on the open market in addition to transmitting the data back to KSC for science.
+	mass = 0.1
+	requiredResource = Equipment
+	requiredAmount = 1200
+	reconfigureSkill = ConverterSkill
+	logoPanel = WildBlueIndustries/000WildBlueTools/Decals/GeneralLab
+	glowPanel = WildBlueIndustries/000WildBlueTools/Decals/GeneralLabGlow
+	toolTip = Why should Science be the only reward for your effort? With the Commercial Science Lab, you can: Transmit the research data home for Science, Publish it to increase your standing in the community and earn Reputation, or Sell it for Funds.
+	toolTipTitle = Your First Commercial Lab!
+	enableMPLModules = true
+	// templateTags = orbitalWorkshop
+	MODULE
+	{
+		name = WBISciLabOpsView
+	}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = WBIEmptyExperiment
+		defaultExperiment = WBIEmptyExperiment
+		experimentActionName = Do Nothing
+		resetActionName = Reset Nothing
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.25
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = False
+		resettable = False
+		resettableOnEVA = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = WBIEmptyExperiment
+		defaultExperiment = WBIEmptyExperiment
+		experimentActionName = Do Nothing
+		resetActionName = Reset Nothing
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.25
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = False
+		resettable = False
+		resettableOnEVA = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = WBIEmptyExperiment
+		defaultExperiment = WBIEmptyExperiment
+		experimentActionName = Do Nothing
+		resetActionName = Reset Nothing
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.25
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = False
+		resettable = False
+		resettableOnEVA = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	MODULE
+	{
+		name = WBIModuleScienceExperiment
+		experimentID = WBIEmptyExperiment
+		defaultExperiment = WBIEmptyExperiment
+		experimentActionName = Do Nothing
+		resetActionName = Reset Nothing
+		isGUIVisible = True
+		isRunning = False
+		checkPartResources = True
+		resultsSafetyCheck = False
+		useStaging = False
+		useActionGroups = True
+		hideUIwhenUnavailable = True
+		xmitDataScalar = 0.25
+		dataIsCollectable = False
+		interactionRange = 1.2
+		rerunnable = False
+		resettable = False
+		resettableOnEVA = False
+		usageReqMaskInternal = 1
+		usageReqMaskExternal = 8
+	}
+	MODULE
+	{
+		name = WBIExperimentLab
+		debugMode = false
+		canCreateExperiments = true
+		experimentCreationSkill = ScienceSkill
+		minimumCreationLevel = 2
+		defaultCreationResource = ResearchKits
+		minimumCreationAmount = 100.0
+		checkCreationResources = true
+		isGUIVisible = false
+		experimentID = WBISpaceResearch
+		ConverterName = Lab Time
+		StartActionName = Start Lab Time
+		StopActionName = Stop Lab Time
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ScienceSkill
+		GeneratesHeat = false
+		hoursPerCycle = 6
+		crewsRequired = 1
+		minimumSuccess = 40
+		criticalSuccess = 95
+		criticalFail = 20
+		sciencePerCycle = 1.0
+		repairSkill = ScienceSkill
+		repairResource = ResearchKits
+		repairAmount = 100
+		defaultExperiment = WBIEmptyExperiment
+		INPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 5
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = ResearchKits
+			Ratio = 0.00027777
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = LabTime
+			Ratio = 0.00028
+			DumpExcess = true
+		}
+	}
+	MODULE
+	{
+		name = WBIDataTransferUtility
+	}
+	RESOURCE
+	{
+		name = ResearchKits
+		amount = 720
+		maxAmount = 720
+		isTweakable = true
+	}
+}
+
+PATH_ENDURHAB:NEEDS[Pathfinder]
+{
+	author = Angel-125
+	name = OmniLab
+	description = The OmniLab makes setting up new bases easier by letting you decide what converters you need instead of choosing a template only for one or two converters while the rest sit idle. It's a more efficient way to configure your base components.
+	mass = 0.1
+	requiredResource = Equipment
+	requiredAmount = 300
+	reconfigureSkill = ConverterSkill
+	logoPanel = WildBlueIndustries/000WildBlueTools/Decals/OmniLab
+	glowPanel = WildBlueIndustries/000WildBlueTools/Decals/OmniLabGlow
+	toolTip = Don't like letting converters sit idle? With the OmniLab, now you can set up the exact converters that you want!
+	toolTipTitle = Your First OmniLab
+	// templateTags = dsevLab;moleLab;airshipLab
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 1
+		templateNodes = OMNICONVERTER
+		templateTags = lab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 300
+		ConverterName = OmniConverter 1
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 2
+		templateNodes = OMNICONVERTER
+		templateTags = lab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 300
+		ConverterName = OmniConverter 2
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 3
+		templateNodes = OMNICONVERTER
+		templateTags = lab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 300
+		ConverterName = OmniConverter 3
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 4
+		templateNodes = OMNICONVERTER
+		templateTags = lab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 300
+		ConverterName = OmniConverter 4
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniStorage
+		storageVolume = 9000
+		accountForSwitcherCapacity = true
+		reconfigureSkill = ConverterSkill
+		reconfigureRank = 1
+		requiredResource = Equipment
+		requiredAmount = 0
+	}
+}
+
+PATH_ENDURHAB:NEEDS[Pathfinder]
+{
+	author = Angel-125
+	name = Watney
+	title = Watney Chemistry Lab
+	description = Want to make ResearchKits? Need to sip something to take your mind off of the emptiness of space? This special purpose chemistry lab provides just what's useful, even if questionable, to help ensure a pleasant journey.
+	mass = 0.1
+	requiredResource = Equipment
+	requiredAmount = 1200
+	reconfigureSkill = ConverterSkill
+	logoPanel = WildBlueIndustries/000WildBlueTools/Decals/Watney
+	glowPanel = WildBlueIndustries/000WildBlueTools/Decals/WatneyGlow
+	toolTip = The Watney Chemistry Lab gives you a place for all your chemistry experiments. In addition to making ResearchKits, the lab offers a way to produce water and generate power.
+	toolTipTitle = Your First Chemistry Lab!
+	// templateTags = orbitalWorkshop;moleLab;dsevLab;airshipLab
+	MODULE
+	{
+		name = ModuleResourceConverter
+		ConverterName = Research Kit Assembler
+		StartActionName = Start Research Kits
+		StopActionName = Stop Research Kits
+		AutoShutdown = false
+		GeneratesHeat = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ScienceSkill
+		EfficiencyBonus = 1
+		INPUT_RESOURCE
+		{
+			ResourceName = Ore
+			Ratio = 0.5
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 15
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = ResearchKits
+			Ratio = 0.02
+			DumpExcess = false
+		}
+	}
+	MODULE
+	{
+		name = ModuleResourceConverter
+		ConverterName = Fuel Cell
+		StartActionName = Start Fuel Cell
+		StopActionName = Stop Fuel Cell
+		AutoShutdown = false
+		GeneratesHeat = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ScienceSkill
+		EfficiencyBonus = 1
+		INPUT_RESOURCE
+		{
+			// ResourceName = LiquidFuel
+			// Ratio = 0.02
+			ResourceName = Propellium
+			Ratio = 0.244
+			FlowMode = STAGE_PRIORITY_FLOW
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = Oxidizer
+			Ratio = 0.0244
+			FlowMode = STAGE_PRIORITY_FLOW
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 54
+			DumpExcess = false
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = Water
+			Ratio = 0.2495
+			DumpExcess = true
+		}
+	}
+	
+	MODULE
+	{
+		name = WBIEfficiencyMonitor
+		efficiencyType = science
+		harvestType = 0
+	}
+	MODULE
+	{
+		name = WBIPowerMonitor
+	}
+	RESOURCE
+	{
+		name = ElectricCharge
+		amount = 200
+		maxAmount = 200
+		isTweakable = true
+	}
+	RESOURCE
+	{
+		name = Ore
+		amount = 100
+		maxAmount = 100
+		isTweakable = true
+	}
+	RESOURCE
+	{
+		name = Minerite
+		amount = 50
+		maxAmount = 50
+		isTweakable = true
+	}
+	RESOURCE
+	{
+		name = Hydrokerbon
+		amount = 50
+		maxAmount = 50
+		isTweakable = true
+	}
+	RESOURCE
+	{
+		name = Water
+		amount = 50
+		maxAmount = 50
+		isTweakable = true
+	}
+	RESOURCE
+	{
+		name = ResearchKits
+		amount = 100
+		maxAmount = 100
+		isTweakable = true
+	}
+}
+
+PATH_ENDURHAB:NEEDS[Pathfinder]
+{
+	author = Angel-125
+	name = Prairie
+	title = Prairie P.O.T.A.T.O. Greenhouse
+	shortName = Prairie Greenhouse
+	description = The Portable Organics Transformer for Anaerobic Tasty Organisms (POTATO) Greenhouse provides alternatives to unappetizing food packs- if you're patient.
+	includeModuleInfo = true
+	mass = 0.1
+	requiredResource = Equipment
+	requiredAmount = 600
+	reconfigureSkill = ConverterSkill
+	logoPanel = WildBlueIndustries/000WildBlueTools/Decals/Greenhouse
+	glowPanel = WildBlueIndustries/000WildBlueTools/Decals/GreenhouseGlow
+	toolTip = If you have a green thumb, then in 90 days (or less with the right talent), you'll have crops to consume. A good crop yield will give you more edible resources than normal, while a bad yield will give you less. If the crops fail, you'll get no edible resources at all and you'll need to start over. On an unrelated note, "426 Ways To Cook A Potato" just made the top 10 reading list.
+	toolTipTitle = Your First Greenhouse!
+	capacityFactor = 1.0
+	RESOURCE
+	{
+		name = ElectricCharge
+		amount = 200
+		maxAmount = 200
+		isTweakable = true
+	}
+}
+
+PATH_ENDURCMD:NEEDS[Pathfinder]
+{
+	author = Angel-125
+	name = EnduranceHab
+	title = Endurance Habitat
+	description = Now all your teamsters have a place to hang out and play video games- and snooker gamers into providing directions to some nearby island resort.
+	mass = 0.1
+	requiredResource = Equipment
+	requiredAmount = 600
+	reconfigureSkill = ConverterSkill
+	logoPanel = WildBlueIndustries/000WildBlueTools/Decals/Ponderosa
+	glowPanel = WildBlueIndustries/000WildBlueTools/Decals/PonderosaGlow
+	toolTip = Need a place to just hang out and play Guitar Hero? The Ponderosa has you covered. You can do more than just play games though. You can set up action groups for your base to control various modules, and with kOS installed, you have advanced control over your base's functionality with the built-in kOS Processor.
+	toolTipTitle = Your First Ponderosa Habitat!
+	templateTags = orbitalWorkshop;moleHab;dsevHab;airshipHab
+
+	MODULE
+	{
+		name = ModuleExperienceManagement
+		costPerKerbal = 0
+	}
+	MODULE
+	{
+		name = ModuleProbeControlPoint
+		minimumCrew = 2
+		multiHop = False
+	}
+	MODULE:NEEDS[kOS]
+	{
+		name = kOSProcessor
+		diskSpace = 5000
+		TechRequired = precisionEngineering
+		needs = kOS
+	}
+}
+PATH_ENDURCMD:NEEDS[Pathfinder]
+{
+	author = Angel-125
+	name = OmniShop
+	description = The OmniShop makes setting up new bases easier by letting you decide what converters you need instead of choosing a template only for one or two converters while the rest sit idle. It's a more efficient way to configure your base components.
+	mass = 0.1
+	requiredResource = Equipment
+	requiredAmount = 150
+	reconfigureSkill = ConverterSkill
+	logoPanel = WildBlueIndustries/000WildBlueTools/Decals/OmniShop
+	glowPanel = WildBlueIndustries/000WildBlueTools/Decals/OmniShopGlow
+	toolTip = Don't like letting converters sit idle? With the OmniShop, now you can set up the exact converters that you want!
+	toolTipTitle = Your First OmniShop
+	templateTags = moleHab;airshipHab;dsevHab
+
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 1
+		templateNodes = OMNICONVERTER
+		templateTags = hab
+
+		//Base efficiency based on a 1000-liter converter volume.
+		//Smaller converters have lower efficiency while bigger converters have larger efficiencies.
+		//Example: a 500-liter converter has a BaseEfficiency of 0.5
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 150
+
+		//Standard ModuleResourceConverter stuff
+		ConverterName = OmniConverter 1
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 2
+		templateNodes = OMNICONVERTER
+		templateTags = hab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 150
+		ConverterName = OmniConverter 2
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 3
+		templateNodes = OMNICONVERTER
+		templateTags = hab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 150
+		ConverterName = OmniConverter 3
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniConverter
+		managedName = OmniConverter 4
+		templateNodes = OMNICONVERTER
+		templateTags = hab
+		BaseEfficiency = 1.0
+		reconfigureSkill = ConverterSkill
+		requiredResource = Equipment
+		requiredAmount = 150
+		ConverterName = OmniConverter 4
+		StartActionName = Start Converter
+		StopActionName = Stop Converter
+		AutoShutdown = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ConverterSkill
+		EfficiencyBonus = 1
+	}
+	MODULE
+	{
+		name = WBIOmniStorage
+		storageVolume = 9000
+		accountForSwitcherCapacity = true
+		reconfigureSkill = ConverterSkill
+		reconfigureRank = 1
+		requiredResource = Equipment
+		requiredAmount = 0
+	}
+}
+// PATH_ENDURCMD:NEEDS[Pathfinder]
+// {
+	
+// }

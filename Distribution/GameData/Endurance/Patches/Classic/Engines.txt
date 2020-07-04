@@ -1,0 +1,183 @@
+// DSPS x300 Fuel Assembly
+@PART[ENmountEndurance]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleRCSFX]
+	{
+		@resourceName = ElectroPlasma
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = ElectroPlasma
+		}
+		!PROPELLANT[ElectricCharge] {}
+		// @resourceName = Propellium
+		// @PROPELLANT[LiquidFuel]
+		// {
+			// @name = Propellium
+		// }
+		// @PROPELLANT[ElectricCharge]
+		// {
+			// @ratio = 26.037
+		// }
+	}
+}
+
+// Endurance Deep Space Engine
+@PART[ENenduranceEngine]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleEnginesFX],0
+	{
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = Propellium
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 7389.4
+		}
+	}
+	@MODULE[ModuleEnginesFX],1
+	{
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = Propellium
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 1847.35
+		}
+	}
+}
+
+// Ranger
+@PART[ENrangerBody]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleEnginesFX]
+	{
+		@PROPELLANT[IntakeAir]
+		{
+			@name = Atmosphere
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 26.037
+		}
+	}
+	@MODULE[ModuleRCSFX]
+	{
+		@resourceName = ElectroPlasma
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = ElectroPlasma
+		}
+		!PROPELLANT[ElectricCharge] {}
+		// @resourceName = Propellium
+		// @PROPELLANT[LiquidFuel]
+		// {
+			// @name = Propellium
+		// }
+		// @PROPELLANT[ElectricCharge]
+		// {
+			// @ratio = 26.037
+		// }
+	}
+}
+
+// Ranger Aerospike
+@PART[ENrangerEngine]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleEnginesFX]
+	{
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = Propellium
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 130.171
+		}
+	}
+}
+
+// Lander
+@PART[ENlanderBody]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleEnginesFX]
+	{
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = Propellium
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 62.487
+		}
+	}
+	@MODULE[ModuleRCSFX]
+	{
+		@resourceName = ElectroPlasma
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = ElectroPlasma
+		}
+		!PROPELLANT[ElectricCharge] {}
+		// @resourceName = Propellium
+		// @PROPELLANT[LiquidFuel]
+		// {
+			// @name = Propellium
+		// }
+		// @PROPELLANT[ElectricCharge]
+		// {
+			// @ratio = 26.037
+		// }
+	}
+}
+
+// Lander Lift Engine
+@PART[ENlanderVTOL]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleEnginesFX]
+	{
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = Propellium
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 62.5
+		}
+	}
+}
+
+// Viper Composite Fuselage
+@PART[ENminiRanger]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleEnginesFX]
+	{
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = Propellium
+		}
+		@PROPELLANT[ElectricCharge]
+		{
+			@ratio = 62.487
+		}
+	}
+	@MODULE[ModuleRCSFX]
+	{
+		@resourceName = ElectroPlasma
+		@PROPELLANT[LiquidFuel]
+		{
+			@name = ElectroPlasma
+		}
+		!PROPELLANT[ElectricCharge] {}
+		// @resourceName = Propellium
+		// @PROPELLANT[LiquidFuel]
+		// {
+			// @name = Propellium
+		// }
+		// @PROPELLANT[ElectricCharge]
+		// {
+			// @ratio = 26.037
+		// }
+	}
+}

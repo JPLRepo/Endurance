@@ -1,0 +1,13 @@
+// Ranger
+@PART[ENrangerBody]:NEEDS[ClassicStock]
+{
+	+MODULE[ModuleResourceIntake]
+	{
+		@resourceName = Atmosphere
+		@checkForOxygen = False
+	}
+	+RESOURCE[IntakeAir]
+	{
+		@name = Atmosphere
+	}
+}

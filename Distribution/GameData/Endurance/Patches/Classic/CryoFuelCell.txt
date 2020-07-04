@@ -1,0 +1,20 @@
+@PART[ENmountEndurance|ENrangerBody|ENlanderBody|ENminiRanger]:NEEDS[ClassicStock]
+{
+	@MODULE[ModuleResourceConverter]:HAS[#ConverterName[Fuel?Cell]]
+	{
+		@INPUT_RESOURCE:HAS[#ResourceName[LiquidFuel]]
+		{
+			@ResourceName = Propellium
+			@Ratio = #$../INPUT_RESOURCE,1/Ratio$
+			@Ratio *= 10
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = Water
+			Ratio = #$../INPUT_RESOURCE,1/Ratio$
+			@Ratio *= 5.625
+			FlowMode = STAGE_PRIORITY_FLOW
+			DumpExcess = True
+		}
+	}
+}
