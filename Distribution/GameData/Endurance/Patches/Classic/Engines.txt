@@ -149,7 +149,7 @@
 }
 
 // Viper Composite Fuselage
-@PART[ENminiRanger]:NEEDS[ClassicStock]
+@PART[ENminiRanger]:NEEDS[ClassicStock,!FlyingSaucers]
 {
 	@MODULE[ModuleEnginesFX]
 	{

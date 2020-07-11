@@ -1,13 +1,47 @@
 V1.12
-* Added probe control point to command module.
-* Added Kerbalism features:
-  * Added comforts.
-  * Increased engine burn times and ignition counts.
-  * Increased science hard drive capacities.
-* Fixed prior patches: 
-  * USI LS. Stopped the MM pass warnings.
+
+* Added B9 tank support for the major LS mods (USI, TAC, Snacks, Kerbalism).
+* Added Experiment Cluster box part.
+* Added Infirmary module part for Endurance ring with DeepFreeze support.
+* Added improved feature support for these LS mods.
+  * Kerbalism:
+    * Added comforts.
+    * Raised science storage capacities.
+    * Raised ignition count and operation time on all engines. By a lot.
+  * USI:
+    * Added MedBay option to the Infirmary part. May need proof-reading.
+  * WBI:
+    * 2 low-output OmniConverter slots in Logistics module when WildBlueTools installed.
+    * Pathfinder templates.
+    * Air! and Stress! modules for Snacks! LS.
+* Added probe control point and extreme range, low-bandwith antenna to command module.
+* Fixed prior patches: USI LS, KIS.
+* Fixed docking ports not being in Coupling category, not having a manufacturer key, but also 2 of them actually being non-functional Structural category items (mount points) but saying that they're docking ports.
+* Fixed other parts being in less appropriate categories.
 * Hid deployable flag part. It's been broken and unplayable forever.
-* Integrated Endurance Reconfig. Full feature list here: https://github.com/JadeOfMaar/EnduranceReconfig/blob/master/README.md 
+* Integrated Endurance Reconfig.
+
+# Endurance Reconfig (from V1.11, KSP 1.9) feature list:
+* Adds a copy of the crew cabin, purposed for integration with DeepFreeze, Kerbal Health and Kerbalism.
+* Adds plumes to nearly all engines and RCS thrusters. (Technical issues beyond my grasp.)
+* Adds stack symmetry (only for 2x symmetry, very handy) to the structural ring.
+* Adds missing built-in antennas and KerbNet modules.
+* Fixes heat limits and heat production to be mostly negligible.
+* Fixes the Viper/Mini-Ranger to:
+  * Have some stack nodes for mounting onto other parts/vessels.
+  * Use Kerbal Flying Saucers features if that mod is installed.
+* Makes the engines and RCS use only LiquidFuel and ElectricCharge, and raises their Isp and their Electrical demands to practical high levels. These buffs make Endurance much more fit for use in a large kerbal universe, whether an upscaled one or one with many star systems.
+  * Makes use of LqdHydrogen instead of LiquidFuel in CRP (when Rational Resources, CryoEngines or Kerbal Atomics are present).
+  * Makes use of Propellium instead of LiquidFuel in WBI Classic Stock.
+  * LiquidFuel replacement also applies to fuel cells.
+* Moves some parts further along in the tech tree (when CTT is present) due to their fusion power natures.
+* Replaces the basic, high-powered generator module with convincing fuel cells and Tokamak-alike fusion power sources.
+* Changes ElectricCharge tankage and changes tanks to use B9 Part Switch or WBI OmniStorage.
+* Integrates parts with WBI Pathfinder and Snacks for a very complete gameplay feature set.
+  * Changes habitability assessment experiment into 2x WBT experiments that require time and resources and only fully functions at some worlds.
+  * Makes crewed parts configurable in-flight.
+  * Provides life support mod integration only for WBI Snacks.
+
 
 V1.11
 Re-compile for KSP 1.9.x

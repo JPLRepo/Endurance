@@ -1,4 +1,4 @@
-@PART[ENmountEndurance|ENrangerBody|ENlanderBody|ENminiRanger]:NEEDS[ClassicStock]
+@PART[ENmountEndurance|ENrangerBody|ENlanderBody|ENminiRanger|ENcargoScience]:NEEDS[ClassicStock]
 {
 	@MODULE[ModuleResourceConverter]:HAS[#ConverterName[Fuel?Cell]]
 	{
@@ -6,7 +6,7 @@
 		{
 			@ResourceName = Propellium
 			@Ratio = #$../INPUT_RESOURCE,1/Ratio$
-			@Ratio *= 10
+			@Ratio *= 3
 		}
 		OUTPUT_RESOURCE
 		{
