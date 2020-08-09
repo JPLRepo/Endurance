@@ -1,7 +1,7 @@
 V1.12
 
 * Added B9 tank support for the major LS mods (USI, TAC, Snacks, Kerbalism).
-* Added Experiment Cluster box part.
+* Added MB-30 Experiment Cluster box part.
 * Added Infirmary module part for Endurance ring with DeepFreeze support.
 * Added improved feature support for these LS mods.
   * Kerbalism:
@@ -16,10 +16,12 @@ V1.12
     * Air! and Stress! modules for Snacks! LS.
 * Added probe control point and extreme range, low-bandwith antenna to command module.
 * Fixed prior patches: USI LS, KIS.
-* Fixed docking ports not being in Coupling category, not having a manufacturer key, but also 2 of them actually being non-functional Structural category items (mount points) but saying that they're docking ports.
 * Fixed other parts being in less appropriate categories.
+  * Fixed docking ports not being in Coupling category, not having a manufacturer key, but also 2 of them actually being non-functional Structural category items (mount points) but saying that they're docking ports.
+  * Moved MB-25 Freight Box to Payload category.
 * Hid deployable flag part. It's been broken and unplayable forever.
 * Integrated Endurance Reconfig.
+
 
 # Endurance Reconfig (from V1.11, KSP 1.9) feature list:
 * Adds a copy of the crew cabin, purposed for integration with DeepFreeze, Kerbal Health and Kerbalism.
