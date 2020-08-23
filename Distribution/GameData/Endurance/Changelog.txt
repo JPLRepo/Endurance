@@ -1,24 +1,87 @@
+V1.12
+
+* Added B9 tank support for the major LS mods (USI, TAC, Snacks, Kerbalism).
+* Added MB-30 Experiment Cluster box part.
+* Added Infirmary module part for Endurance ring with DeepFreeze support.
+* Added improved feature support for these LS mods.
+  * Kerbalism:
+    * Added comforts.
+    * Raised science storage capacities.
+    * Raised ignition count and operation time on all engines. By a lot.
+  * USI:
+    * Added MedBay option to the Infirmary part. May need proof-reading.
+  * WBI:
+    * 2 low-output OmniConverter slots in Logistics module when WildBlueTools installed.
+    * Pathfinder templates.
+    * Air! and Stress! modules for Snacks! LS.
+* Added probe control point and extreme range, low-bandwith antenna to command module.
+* Fixed prior patches: USI LS, KIS.
+* Fixed other parts being in less appropriate categories.
+  * Fixed docking ports not being in Coupling category, not having a manufacturer key, but also 2 of them actually being non-functional Structural category items (mount points) but saying that they're docking ports.
+  * Moved MB-25 Freight Box to Payload category.
+* Hid deployable flag part. It's been broken and unplayable forever.
+* Integrated Endurance Reconfig.
+
+
+# Endurance Reconfig (from V1.11, KSP 1.9) feature list:
+* Adds a copy of the crew cabin, purposed for integration with DeepFreeze, Kerbal Health and Kerbalism.
+* Adds plumes to nearly all engines and RCS thrusters. (Technical issues beyond my grasp.)
+* Adds stack symmetry (only for 2x symmetry, very handy) to the structural ring.
+* Adds missing built-in antennas and KerbNet modules.
+* Fixes heat limits and heat production to be mostly negligible.
+* Fixes the Viper/Mini-Ranger to:
+  * Have some stack nodes for mounting onto other parts/vessels.
+  * Use Kerbal Flying Saucers features if that mod is installed.
+* Makes the engines and RCS use only LiquidFuel and ElectricCharge, and raises their Isp and their Electrical demands to practical high levels. These buffs make Endurance much more fit for use in a large kerbal universe, whether an upscaled one or one with many star systems.
+  * Makes use of LqdHydrogen instead of LiquidFuel in CRP (when Rational Resources, CryoEngines or Kerbal Atomics are present).
+  * Makes use of Propellium instead of LiquidFuel in WBI Classic Stock.
+  * LiquidFuel replacement also applies to fuel cells.
+* Moves some parts further along in the tech tree (when CTT is present) due to their fusion power natures.
+* Replaces the basic, high-powered generator module with convincing fuel cells and Tokamak-alike fusion power sources.
+* Changes ElectricCharge tankage and changes tanks to use B9 Part Switch or WBI OmniStorage.
+* Integrates parts with WBI Pathfinder and Snacks for a very complete gameplay feature set.
+  * Changes habitability assessment experiment into 2x WBT experiments that require time and resources and only fully functions at some worlds.
+  * Makes crewed parts configurable in-flight.
+  * Provides life support mod integration only for WBI Snacks.
+
+
 V1.11
 Re-compile for KSP 1.9.x
 Fixed MM config.
 Removed Mini-AVC.
+
+
 V1.10
 Re-compile for KSP 1.8.x
+
+
 V1.9
 Re-compile for KSP 1.7.x
+
+
 V1.8
 Re-compile for KSP 1.5.x
+
+
 V1.7
 Re-Compile for KSP 1.4.1
 Fixed hatch blocked on the inflatable habitat part.
+
+
 V1.6
 Re-Compile for KSP 1.3.1
+
+
 V1.5
 Fix Lander RCS thruster causing it to roll and pitch.
 Adjusted CoM and CoL for lander.
 Added Gimbal to Lander rear engines for better control.
+
+
 V1.4
 Re-compile for KSP 1.3
+
+
 V1.3 (was not released)
 Re-compile for KSP 1.2+
 Re-Balance Lander and Ranger bodies now that lifting bodies is fixed. NB: Once FAR comes out for KSP 1.2 will need another re-balance for FAR.
@@ -32,6 +95,8 @@ Same major re-balance the Lander. The Lander requires a tweak if you are using F
 So if you are using FAR you also need to install Module Manager.
 Added the Example Craft files into the distro as an optional zip. Unzip the embedded zip file and copy into your save file directory as per the
 instructions in the included text file.
+
+
 V1.01
 Fixed all the docking ports.
 Re-pass over the Science lab - but it's legs also have issues like the Ranger. For now, as long as you don't launch it with it's
@@ -39,6 +104,7 @@ legs deployed it seems fine.
 Added KIS container space to the Ranger and Lander (if you have KIS installed).
 Re-balanced the Ranger and Lander centre of mass and centre of lift and engine thrusters to hopefully make them much more stable.
 Fixed blocked hatches on the Lander
+
 
 V1.00
 Fixed Blocked Hatch on Ranger - Ranger now has a Ranger Docking port built-in. Fixed blocked hatches on a bunch of other parts (thanks KSP 1.1).
@@ -52,6 +118,7 @@ Added new Endurance Ring docking parts: "Endurance Outer Docking Node" and "Endu
 Known Issues: Ranger Landing legs sink into the ground - I am unable to find a reliable way to fix this and many have had issues with landing
 legs. Assume further updates to KSP will provide fixes for this. For now it is what it is.
 
+
 V0.93
 Fixed Texture on Lander - Specular.
 Added Attach nodes to the top and bottom of the Lander.
@@ -63,11 +130,13 @@ move the mouse outwards a little bit until they turn green and release. Should a
 first attach docking nodes to a Straight attach point on the ring centre. Attach two Docking nodes the right way around and
 then attach the Ranger. Then select the innermost docking port and place it on the angled attach node.
 
+
 V0.92
 Fixed collider on Ranger docking port part.
 Fixed RCS transforms on the Ranger and Lander.
 Fixed Landing legs on the Ranger - using custom part module adapted from SSTU mod (with permission).
 Added AVC version checking support.
+
 
 V0.91 
 Fixed Thermals.
