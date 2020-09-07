@@ -2,6 +2,8 @@
 Kerbal Space Program Endurance Mod
 ![Endurance](https://i.imgur.com/k3IHQGP.jpg)
 
+Please submit all PRs to Develop branch.
+
 This is a Continuation/Revival of the Endurance Mod for Kerbal Space Program.
 
 This mod is designed to function with the addition of these KSP mods:
