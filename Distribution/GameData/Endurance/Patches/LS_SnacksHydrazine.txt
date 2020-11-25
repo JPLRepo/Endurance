@@ -1,0 +1,63 @@
+// While HydrazineVodka requires Snacks: Stress!, its definition is in a separate Hydrazine config that must be manually activated apart from Stress!
+// Its definition is copied and given here to prevent KSP hanging on undefined tank resource when Stress! without Hydrazine is activated.
+%RESOURCE_DEFINITION[HydrazineVodka]:NEEDS[SnacksStress]
+{
+	%displayName = "Hydrazine"
+	%density = 0.001
+	%unitCost = 0.5
+	%flowMode = ALL_VESSEL
+	%transfer = PUMP
+	%isTweakable = true
+	%volume = 0.044
+}
+
+@PATH_ENDURHAB[Watney]:NEEDS[Pathfinder,SnacksStress,ClassicStock]
+{
+	MODULE
+	{
+		name = ModuleResourceConverter
+		ConverterName = Vodka Brewery
+		StartActionName = Start Vodka
+		StopActionName = Stop Vodka
+		AutoShutdown = false
+		GeneratesHeat = false
+		UseSpecialistBonus = true
+		SpecialistEfficiencyFactor = 0.2
+		SpecialistBonusBase = 0.05
+		ExperienceEffect = ScienceSkill
+		EfficiencyBonus = 1
+		INPUT_RESOURCE
+		{
+			ResourceName = Minerite
+			Ratio = 0.0015
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = Hydrokerbon
+			Ratio = 0.0024
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = Water
+			Ratio = 0.03
+		}
+		INPUT_RESOURCE
+		{
+			ResourceName = ElectricCharge
+			Ratio = 2
+		}
+		OUTPUT_RESOURCE
+		{
+			ResourceName = HydrazineVodka
+			Ratio = 0.2
+			DumpExcess = false
+		}
+	}
+	RESOURCE
+	{
+		name = HydrazineVodka
+		amount = 50
+		maxAmount = 50
+		isTweakable = true
+	}
+}
