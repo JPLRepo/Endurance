@@ -1,3 +1,11 @@
+V1.13
+* Added KSP 1.11 stock inventories.
+* Fixed issues with Kerbalism:
+  * FusionPellets don't appear on crewed parts.
+  * Ranger VTOL engine guzzles ElectricCharge (due to install with incompatible WBI Classic Stock).
+* Moved storage cuboid to Cargo category.
+
+
 V1.12
 * Re-compile for KSP 1.10.x
 * Added B9 tank support for the major LS mods (USI, TAC, Snacks, Kerbalism).
